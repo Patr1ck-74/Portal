@@ -72,20 +72,6 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        // --- 测试 Root 请求并弹窗显示结果 ---
-        kotlin.concurrent.thread {
-            val isRootGranted = moe.fuqiuluo.portal.android.root.ShellUtils.hasRoot()
-            
-            // 切换回主线程在屏幕上弹出提示
-            requireActivity().runOnUiThread {
-                android.widget.Toast.makeText(
-                    requireContext(), 
-                    "Root 申请结果: $isRootGranted", 
-                    android.widget.Toast.LENGTH_LONG
-                ).show()
-            }
-        }
-        // ----------------------------------------
 
         // Fixed the issue that the Fab was opening incorrectly after switching back to Home for Fragments
         homeViewModel.mFabOpened = false
