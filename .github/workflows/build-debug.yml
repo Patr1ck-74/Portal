@@ -39,16 +39,21 @@ jobs:
           chmod +x ./gradlew
           ./gradlew assembleDebug --stacktrace
 
-      # 关键步骤 3：在控制台打印出 SHA1 指纹，供你复制到百度地图平台
-      - name: Print Debug SHA1 Fingerprint
-        run: |
-          echo "========================================="
-          echo "你的百度地图 SHA1 指纹是："
-          keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android | grep "SHA1:"
-          echo "========================================="
-
-      - name: Find and Upload APK
+      # 以下是拆分后的独立上传步骤：
+      - name: Upload ARM64 APK
         uses: actions/upload-artifact@v4
         with:
-          name: Portal-Debug-APKs
-          path: app/build/outputs/apk/*/debug/*.apk
+          name: Portal-Debug-arm64
+          path: app/build/outputs/apk/arm64/debug/*.apk
+
+      - name: Upload X86_64 APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Portal-Debug-x86_64
+          path: app/build/outputs/apk/x64/debug/*.apk
+
+      - name: Upload ALL APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Portal-Debug-all
+          path: app/build/outputs/apk/app/debug/*.apk
