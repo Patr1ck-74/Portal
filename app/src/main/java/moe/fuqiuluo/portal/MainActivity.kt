@@ -390,7 +390,7 @@ class MainActivity : AppCompatActivity() {
                 try {
                     mSuggestionSearch!!.requestSuggestion(SuggestionSearchOption()
                         .keyword(query)
-                        .city(mCityString)
+                        .city(mCityString ?: "北京市")
                     )
 
                     baiduMapViewModel.baiduMap.clear()
@@ -408,7 +408,7 @@ class MainActivity : AppCompatActivity() {
                         mSuggestionSearch!!.requestSuggestion(
                             SuggestionSearchOption()
                                 .keyword(newText)
-                                .city(mCityString)
+                                .city(mCityString ?: "北京市")
                         )
                     } catch (e: Exception) {
                         Toast.makeText(this@MainActivity, "搜索出错", Toast.LENGTH_SHORT).show()
