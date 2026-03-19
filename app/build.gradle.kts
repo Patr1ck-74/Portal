@@ -30,7 +30,7 @@ android {
 //            throw GradleException("在 CI 环境中必须提供 google-services.json 文件!")
 //        }
 
-        manifestPlaceholders["BUGLY_APPID"] = "222f9ef298"
+        manifestPlaceholders["BUGLY_APPID"] = ""
 
         val publicIp = try {
             val isWindows = org.gradle.internal.os.OperatingSystem.current().isWindows
