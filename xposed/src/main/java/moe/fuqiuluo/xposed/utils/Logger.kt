@@ -8,38 +8,34 @@ object Logger {
     }
 
     fun info(msg: String) {
-        if (isEnableLog()) {
-            XposedBridge.log("[Portal] $msg")
-        }
+        // if (isEnableLog()) XposedBridge.log("[Portal] $msg")
     }
 
     fun info(msg: String, throwable: Throwable) {
-        if (isEnableLog()) {
-            XposedBridge.log("[Portal] $msg: ${throwable.stackTraceToString()}")
-        }
+        // if (isEnableLog()) XposedBridge.log("[Portal] $msg: ${throwable.stackTraceToString()}")
     }
 
     fun debug(msg: String) {
-        XposedBridge.log("[Portal][DEBUG] $msg")
+        // XposedBridge.log("[Portal][DEBUG] $msg")
     }
 
     fun debug(msg: String, throwable: Throwable) {
-        XposedBridge.log("[Portal][DEBUG] $msg: ${throwable.stackTraceToString()}")
+        // XposedBridge.log("[Portal][DEBUG] $msg: ${throwable.stackTraceToString()}")
     }
 
     fun error(msg: String) {
-        XposedBridge.log("[Portal][ERROR] $msg")
+        // XposedBridge.log("[Portal][ERROR] $msg")
     }
 
     fun error(msg: String, throwable: Throwable) {
-        XposedBridge.log("[Portal][ERROR] $msg: ${throwable.stackTraceToString()}")
+        // XposedBridge.log("[Portal][ERROR] $msg: ${throwable.stackTraceToString()}")
     }
 
     fun warn(msg: String) {
-        XposedBridge.log("[Portal][WARN] $msg")
+        // XposedBridge.log("[Portal][WARN] $msg")
     }
 
     fun warn(msg: String, throwable: Throwable) {
-        XposedBridge.log("[Portal][WARN] $msg: ${throwable.stackTraceToString()}")
+        // XposedBridge.log("[Portal][WARN] $msg: ${throwable.stackTraceToString()}")
     }
 }
