@@ -72,6 +72,10 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        // --- 添加下面这三行代码，强制开屏申请 Root ---
+        kotlin.concurrent.thread {
+            moe.fuqiuluo.portal.android.root.ShellUtils.hasRoot()
+        }
 
         // Fixed the issue that the Fab was opening incorrectly after switching back to Home for Fragments
         homeViewModel.mFabOpened = false
